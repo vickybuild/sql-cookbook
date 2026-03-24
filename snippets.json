@@ -12,7 +12,8 @@
       "DML":              { "bg": "#EAF3DE", "text": "#27500A" },
       "DDL":              { "bg": "#FBEAF0", "text": "#72243E" },
       "Functions":        { "bg": "#F1EFE8", "text": "#444441" },
-      "Troubleshoot":     { "bg": "#E6F1FB", "text": "#0C447C" }
+      "Troubleshoot":     { "bg": "#E6F1FB", "text": "#0C447C" },
+      "Analysis":         { "bg": "#E6F1FB", "text": "#0C447C" }
     }
   },
   "snippets": [
@@ -415,6 +416,24 @@
       "snippets": [
         { "label": "Multiple columns", "code": "SELECT * FROM [SQLCore].[temporal_Capacity].[tbl_Databases_Files] where databaseid =23 and FileType='data' and  SystemStartDateTime between '2026-03-07 12:20:04.7143572' and '2026-03-18 03:50:04.7143572' order by SystemStartDateTime" }
       ]
-    }
+    },
+    {
+      "id": "login-session",
+      "title": "sessions by a login",
+      "category": "Troubleshoot",
+      "description": "Give what session are loggend on in specific time period for given login name",
+      "snippets": [
+        { "label": "NULLIF",   "code": "SELECT * FROM [Field].[dbo].[tbl_Session_Monitor] where collectiontime between '2026-03-23 12:06:18' and  '2026-03-24 15:07:18' and loginname='workflowwebuser';" }
+      ]
+    },
+    {
+      "id": "Execution-plan",
+      "title": "Adhoc execution plan",
+      "category": "Analysis",
+      "description": "Produces the execution plan without executing the query",
+      "snippets": [
+        { "label": "NULLIF",   "code": "USE [db]; -- Replace with your DB name\nGO\n\nSET SHOWPLAN_XML ON;\nGO\n\n-- Your query here\nGO\n\nSET SHOWPLAN_XML OFF;" }
+      ]
+    }    
   ]
 }
