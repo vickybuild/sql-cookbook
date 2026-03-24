@@ -12,7 +12,7 @@
       "DML":              { "bg": "#EAF3DE", "text": "#27500A" },
       "DDL":              { "bg": "#FBEAF0", "text": "#72243E" },
       "Functions":        { "bg": "#F1EFE8", "text": "#444441" },
-      "Troubleshoot":     { "bg": "#E6F1FB", "text": "#0C447C" },
+      "Troubleshoot":     { "bg": "#E6F1FB", "text": "#0C447C" }
     }
   },
   "snippets": [
