@@ -407,7 +407,7 @@
         { "label": "NULLIF",   "code": "SELECT NULLIF(col, 0) AS safe_col FROM table_name;" }
       ]
     },
-        {
+    {
       "id": "Temporal capacity",
       "title": "select historical file size",
       "category": "Troubleshoot",
