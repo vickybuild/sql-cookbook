@@ -11,7 +11,8 @@
       "Advanced":         { "bg": "#FAECE7", "text": "#712B13" },
       "DML":              { "bg": "#EAF3DE", "text": "#27500A" },
       "DDL":              { "bg": "#FBEAF0", "text": "#72243E" },
-      "Functions":        { "bg": "#F1EFE8", "text": "#444441" }
+      "Functions":        { "bg": "#F1EFE8", "text": "#444441" },
+      "Troubleshoot":     { "bg": "#E6F1FB", "text": "#0C447C" },
     }
   },
   "snippets": [
@@ -406,5 +407,14 @@
         { "label": "NULLIF",   "code": "SELECT NULLIF(col, 0) AS safe_col FROM table_name;" }
       ]
     }
+        {
+      "id": "Temporal capacity",
+      "title": "select historical file size",
+      "category": "Troubleshoot",
+      "description": "Gives historical file sizes for given period of time of a databse file",
+      "snippets": [
+        { "label": "Multiple columns", "code": "SELECT * FROM [SQLCore].[temporal_Capacity].[tbl_Databases_Files] where databaseid =23 and FileType='data' and  SystemStartDateTime between '2026-03-07 12:20:04.7143572' and '2026-03-18 03:50:04.7143572' order by SystemStartDateTime" }
+      ]
+    },
   ]
 }
