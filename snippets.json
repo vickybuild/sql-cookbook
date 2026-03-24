@@ -423,7 +423,7 @@
       "category": "Troubleshoot",
       "description": "Give what session are loggend on in specific time period for given login name",
       "snippets": [
-        { "label": "NULLIF",   "code": "SELECT * FROM [Field].[dbo].[tbl_Session_Monitor] where collectiontime between '2026-03-23 12:06:18' and  '2026-03-24 15:07:18' and loginname='workflowwebuser';" }
+        { "label": "Multiple columns",   "code": "SELECT * FROM [Field].[dbo].[tbl_Session_Monitor] where collectiontime between '2026-03-23 12:06:18' and  '2026-03-24 15:07:18' and loginname='workflowwebuser';" }
       ]
     },
     {
@@ -432,7 +432,7 @@
       "category": "Analysis",
       "description": "Produces the execution plan without executing the query",
       "snippets": [
-        { "label": "NULLIF",   "code": "USE [db]; -- Replace with your DB name\nGO\n\nSET SHOWPLAN_XML ON;\nGO\n\n-- Your query here\nGO\n\nSET SHOWPLAN_XML OFF;" }
+        { "label": "Multiple columns",   "code": "USE [db]; -- Replace with your DB name\nGO\n\nSET SHOWPLAN_XML ON;\nGO\n\n-- Your query here\nGO\n\nSET SHOWPLAN_XML OFF;" }
       ]
     }    
   ]
