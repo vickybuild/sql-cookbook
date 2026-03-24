@@ -408,7 +408,7 @@
       ]
     },
     {
-      "id": "Temporal capacity",
+      "id": "Temporal-capacity",
       "title": "select historical file size",
       "category": "Troubleshoot",
       "description": "Gives historical file sizes for given period of time of a databse file",
