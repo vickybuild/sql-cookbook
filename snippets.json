@@ -457,7 +457,7 @@
       "id": "session-login-counts",
       "title": "Session login counts over time",
       "category": "Troubleshoot",
-      "description": "Collects the number of logins per session over a specified time period for troubleshooting and analysis(Can be checked foe Session connected Threshold breached).",
+      "description": "Collects the number of session login over a specified time period for troubleshooting and analysis(Can be checked for Session connected Threshold breached).",
       "snippets": [
         { "label": "SQL Server",   "code": "USE [Field];\nGO\n\nSET NOCOUNT ON;\nSET XACT_ABORT ON;\nGO\n\nDECLARE @StartDateTime DATETIME2;\nDECLARE @EndDateTime   DATETIME2;\n\nSET @StartDateTime = '2025-07-17 09:00:00';\nSET @EndDateTime   = '2025-07-17 11:00:00';\n\nDROP TABLE IF EXISTS #tbl_Session_Counts;\n\nSELECT\n  [CollectionTime],\n  [LoginName],\n  [Count] = COUNT(1)\nINTO #tbl_Session_Counts\nFROM [dbo].[tbl_Session_Monitor]\nWHERE [CollectionTime] BETWEEN @StartDateTime AND @EndDateTime\nGROUP BY [CollectionTime], [LoginName];\n\nDROP TABLE IF EXISTS #tbl_Session_Logins;\n\nSELECT\n  [LoginName],\n  [MaxCount] = MAX([Count])\nINTO #tbl_Session_Logins\nFROM #tbl_Session_Counts\nGROUP BY [LoginName];\n\nDROP TABLE IF EXISTS #tbl_Session_Times;\n\nSELECT DISTINCT [CollectionTime]\nINTO #tbl_Session_Times\nFROM #tbl_Session_Counts;\n\nSELECT\n  t.[CollectionTime],\n  l.[LoginName],\n  [Count] = ISNULL(c.[Count], 0)\nFROM #tbl_Session_Times t\nCROSS APPLY #tbl_Session_Logins l\nLEFT JOIN #tbl_Session_Counts c\n  ON c.[CollectionTime] = t.[CollectionTime]\n AND c.[LoginName] = l.[LoginName]\nWHERE l.[MaxCount] >= 20\nORDER BY\n  t.[CollectionTime],\n  l.[LoginName];" }
       ]
